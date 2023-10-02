@@ -1,12 +1,15 @@
+"use strict";
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
-import { LogLevel } from "./ILogger";
-import { NullLogger } from "./Loggers";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getGlobalThis = exports.getErrorString = exports.constructUserAgent = exports.getUserAgentHeader = exports.ConsoleLogger = exports.SubjectSubscription = exports.createLogger = exports.sendMessage = exports.isArrayBuffer = exports.formatArrayBuffer = exports.getDataDetail = exports.Platform = exports.Arg = exports.VERSION = void 0;
+const ILogger_1 = require("./ILogger");
+const Loggers_1 = require("./Loggers");
 // Version token that will be replaced by the prepack command
 /** The version of the SignalR client. */
-export const VERSION = "7.0.11";
+exports.VERSION = "7.0.10";
 /** @private */
-export class Arg {
+class Arg {
     static isRequired(val, name) {
         if (val === null || val === undefined) {
             throw new Error(`The '${name}' argument is required.`);
@@ -24,8 +27,9 @@ export class Arg {
         }
     }
 }
+exports.Arg = Arg;
 /** @private */
-export class Platform {
+class Platform {
     // react-native has a window but no document so we should check both
     static get isBrowser() {
         return typeof window === "object" && typeof window.document === "object";
@@ -44,8 +48,9 @@ export class Platform {
         return !this.isBrowser && !this.isWebWorker && !this.isReactNative;
     }
 }
+exports.Platform = Platform;
 /** @private */
-export function getDataDetail(data, includeContent) {
+function getDataDetail(data, includeContent) {
     let detail = "";
     if (isArrayBuffer(data)) {
         detail = `Binary data of length ${data.byteLength}`;
@@ -61,8 +66,9 @@ export function getDataDetail(data, includeContent) {
     }
     return detail;
 }
+exports.getDataDetail = getDataDetail;
 /** @private */
-export function formatArrayBuffer(data) {
+function formatArrayBuffer(data) {
     const view = new Uint8Array(data);
     // Uint8Array.map only supports returning another Uint8Array?
     let str = "";
@@ -73,20 +79,22 @@ export function formatArrayBuffer(data) {
     // Trim of trailing space.
     return str.substr(0, str.length - 1);
 }
+exports.formatArrayBuffer = formatArrayBuffer;
 // Also in signalr-protocol-msgpack/Utils.ts
 /** @private */
-export function isArrayBuffer(val) {
+function isArrayBuffer(val) {
     return val && typeof ArrayBuffer !== "undefined" &&
         (val instanceof ArrayBuffer ||
             // Sometimes we get an ArrayBuffer that doesn't satisfy instanceof
             (val.constructor && val.constructor.name === "ArrayBuffer"));
 }
+exports.isArrayBuffer = isArrayBuffer;
 /** @private */
-export async function sendMessage(logger, transportName, httpClient, url, content, options) {
+async function sendMessage(logger, transportName, httpClient, url, content, options) {
     const headers = {};
     const [name, value] = getUserAgentHeader();
     headers[name] = value;
-    logger.log(LogLevel.Trace, `(${transportName} transport) sending data. ${getDataDetail(content, options.logMessageContent)}.`);
+    logger.log(ILogger_1.LogLevel.Trace, `(${transportName} transport) sending data. ${getDataDetail(content, options.logMessageContent)}.`);
     const responseType = isArrayBuffer(content) ? "arraybuffer" : "text";
     const response = await httpClient.post(url, {
         content,
@@ -95,23 +103,25 @@ export async function sendMessage(logger, transportName, httpClient, url, conten
         timeout: options.timeout,
         withCredentials: options.withCredentials,
     });
-    logger.log(LogLevel.Trace, `(${transportName} transport) request complete. Response status: ${response.statusCode}.`);
+    logger.log(ILogger_1.LogLevel.Trace, `(${transportName} transport) request complete. Response status: ${response.statusCode}.`);
 }
+exports.sendMessage = sendMessage;
 /** @private */
-export function createLogger(logger) {
+function createLogger(logger) {
     if (logger === undefined) {
-        return new ConsoleLogger(LogLevel.Information);
+        return new ConsoleLogger(ILogger_1.LogLevel.Information);
     }
     if (logger === null) {
-        return NullLogger.instance;
+        return Loggers_1.NullLogger.instance;
     }
     if (logger.log !== undefined) {
         return logger;
     }
     return new ConsoleLogger(logger);
 }
+exports.createLogger = createLogger;
 /** @private */
-export class SubjectSubscription {
+class SubjectSubscription {
     constructor(subject, observer) {
         this._subject = subject;
         this._observer = observer;
@@ -126,24 +136,25 @@ export class SubjectSubscription {
         }
     }
 }
+exports.SubjectSubscription = SubjectSubscription;
 /** @private */
-export class ConsoleLogger {
+class ConsoleLogger {
     constructor(minimumLogLevel) {
         this._minLevel = minimumLogLevel;
         this.out = console;
     }
     log(logLevel, message) {
         if (logLevel >= this._minLevel) {
-            const msg = `[${new Date().toISOString()}] ${LogLevel[logLevel]}: ${message}`;
+            const msg = `[${new Date().toISOString()}] ${ILogger_1.LogLevel[logLevel]}: ${message}`;
             switch (logLevel) {
-                case LogLevel.Critical:
-                case LogLevel.Error:
+                case ILogger_1.LogLevel.Critical:
+                case ILogger_1.LogLevel.Error:
                     this.out.error(msg);
                     break;
-                case LogLevel.Warning:
+                case ILogger_1.LogLevel.Warning:
                     this.out.warn(msg);
                     break;
-                case LogLevel.Information:
+                case ILogger_1.LogLevel.Information:
                     this.out.info(msg);
                     break;
                 default:
@@ -154,16 +165,18 @@ export class ConsoleLogger {
         }
     }
 }
+exports.ConsoleLogger = ConsoleLogger;
 /** @private */
-export function getUserAgentHeader() {
+function getUserAgentHeader() {
     let userAgentHeaderName = "X-SignalR-User-Agent";
     if (Platform.isNode) {
         userAgentHeaderName = "User-Agent";
     }
-    return [userAgentHeaderName, constructUserAgent(VERSION, getOsName(), getRuntime(), getRuntimeVersion())];
+    return [userAgentHeaderName, constructUserAgent(exports.VERSION, getOsName(), getRuntime(), getRuntimeVersion())];
 }
+exports.getUserAgentHeader = getUserAgentHeader;
 /** @private */
-export function constructUserAgent(version, os, runtime, runtimeVersion) {
+function constructUserAgent(version, os, runtime, runtimeVersion) {
     // Microsoft SignalR/[Version] ([Detailed Version]; [Operating System]; [Runtime]; [Runtime Version])
     let userAgent = "Microsoft SignalR/";
     const majorAndMinor = version.split(".");
@@ -185,6 +198,7 @@ export function constructUserAgent(version, os, runtime, runtimeVersion) {
     userAgent += ")";
     return userAgent;
 }
+exports.constructUserAgent = constructUserAgent;
 // eslint-disable-next-line spaced-comment
 /*#__PURE__*/ function getOsName() {
     if (Platform.isNode) {
@@ -219,7 +233,7 @@ function getRuntime() {
     }
 }
 /** @private */
-export function getErrorString(e) {
+function getErrorString(e) {
     if (e.stack) {
         return e.stack;
     }
@@ -228,8 +242,9 @@ export function getErrorString(e) {
     }
     return `${e}`;
 }
+exports.getErrorString = getErrorString;
 /** @private */
-export function getGlobalThis() {
+function getGlobalThis() {
     // globalThis is semi-new and not available in Node until v12
     if (typeof globalThis !== "undefined") {
         return globalThis;
@@ -245,4 +260,5 @@ export function getGlobalThis() {
     }
     throw new Error("could not find global");
 }
+exports.getGlobalThis = getGlobalThis;
 //# sourceMappingURL=Utils.js.map
