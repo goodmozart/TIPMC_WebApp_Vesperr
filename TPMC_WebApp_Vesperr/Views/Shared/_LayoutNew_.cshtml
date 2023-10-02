@@ -1,0 +1,280 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Microsoft.EntityFrameworkCore;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>@ViewData["Title"]</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/images/logo.png" rel="icon">
+    <link href="~/images/logo.png" rel="apple-touch-icon">
+
+    <environment names="Development">
+         <!-- AdminLTE Files -->
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+        <link rel="stylesheet" href="~/lib/ionicons/css/ionicons.css" />
+        <link rel="stylesheet" href="~/lib/admin-lte/dist/css/adminlte.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+
+        <!-- Vendor CSS Files -->
+        <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
+        @*<link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">*@
+        <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+        <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        <!-- Template Main CSS File -->
+        <link href="~/assets/css/style.css" rel="stylesheet">
+        <link href="~/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+        <!--POS -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <!--SweetAlert2-->
+        <link rel="stylesheet" href="~/lib/sweetalert2/sweetalert2.css" />
+        <!--toastr-->
+        <link rel="stylesheet" href="~/lib/toastr/toastr.min.css" />
+        <!--jquery numpad-->
+        <link rel="stylesheet" href="~/lib/jquerey-numpad/jquery.numpad.css" />
+
+        <!--Datatable-->
+        <link href="~/DataTables/buttons.dataTables.min.css" rel="stylesheet" />
+        <link href="~/DataTables/fixedHeader.dataTables.min.css" rel="stylesheet" />
+        <link href="~/DataTables/jquery.dataTables.min.css" rel="stylesheet" />
+        <link href="~/DataTables/responsive.dataTables.min.css" rel="stylesheet" />
+        <link href="~/DataTables/rowReorder.dataTables.min.css" rel="stylesheet" />
+
+    </environment>
+
+    <environment names="Development">
+        <!-- AdminLTE Files -->
+        <script src="~/lib/jquery/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/lib/admin-lte/dist/js/adminlte.js"> </script>
+        <script src="~/js/site.js"></script>
+
+        <!-- Vendor JS Files -->
+        <script src="~/assets/vendor/aos/aos.js"></script>
+        <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="~/assets/vendor/php-email-form/validate.js"></script>
+        <script src="~/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+        <!-- Template Main JS File -->
+        <script src="~/assets/js/main.js" asp-append-version="true"></script>
+
+        <!--SweetAlert2-->
+        <script src="~/lib/sweetalert2/sweetalert2.js"></script>
+        <!--toastr-->
+        <script src="~/lib/toastr/toastr.min.js"></script>
+        <!--jquery numpad-->
+        <script src="~/lib/jquerey-numpad/jquery.numpad.js"></script>
+        <!--axios-->
+        <script src="~/lib/axios/axios.js" asp-append-version="true"></script>
+
+        <!--Datatable-->
+        <script src="~/DataTables/jquery.dataTables.min.js"></script>
+        <script src="~/DataTables/buttons.print.min.js"></script>
+        <script src="~/DataTables/dataTables.buttons.min.js"></script>
+        <script src="~/DataTables/dataTables.fixedHeader.min.js"></script>
+        <script src="~/DataTables/dataTables.responsive.min.js"></script>
+        <script src="~/DataTables/dataTables.rowReorder.min.js"></script>
+        
+        <!--Loan-->
+        <script src="~/js/owl.js" asp-append-version="true"></script>
+        <script src="~/js/slick.js" asp-append-version="true"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+    </environment>
+    <style>
+        #getstarted {
+            font-size: small;
+            padding: 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+            border-radius: 20px;
+            border: 2px solid #0275d8;
+        }
+
+        .navbar {
+            font-size: small;
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        @await Component.InvokeAsync("Header")
+    </header><!-- End Header -->
+    <!-- ======= Breadcrumbs ======= -->
+    <main id="main">
+        @await Component.InvokeAsync("Breadcrumb")
+    </main>
+    <div class="container-fluid">
+        @*<partial name="_CookieConsentPartial" />*@
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-lg-6 text-lg-left text-center">
+                    <div class="copyright">
+                        &copy; Copyright <strong>RIKI M.</strong>. All Rights Reserved
+                    </div>
+                    <div class="credits">
+                        <!-- All the links in the footer should remain intact. -->
+                        <!-- You can delete the links only if you purchased the pro version. -->
+                        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/vesperr-free-bootstrap-template/ -->
+                        Developed by <a href="https://bootstrapmade.com/">Riki M.</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+                        <a href="#intro" class="scrollto">Home</a>
+                        <a href="#about" class="scrollto">About</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js" asp-append-version="true"></script>
+
+    @* <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+    apiKey: "AIzaSyDfIDKUZ6fG3ttSHfpHIblrKydkK6bleJk",
+    authDomain: "tpmc-394005.firebaseapp.com",
+    projectId: "tpmc-394005",
+    storageBucket: "tpmc-394005.appspot.com",
+    messagingSenderId: "806059359420",
+    appId: "1:806059359420:web:15536d90c8790c1fa0e4b9",
+    measurementId: "G-ZL9SPCR9SG"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    </script>*@
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+    @*@if (Context.Session.GetInt32("userId") == -1 || Context.Session.GetInt32("userId") == null)
+    {
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm p-4 mb-5 bg-dark">
+            <a class="navbar-brand" href="/"><h3 style="font-weight:bold;color:white;">Loan Management System</h3></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav ">
+                    <li class="nav-item flex justify-content-end">
+                        <a class="btn btn-outline-light mr-2 text-light @ViewBag.SignupActive" asp-controller="SignUp" asp-action="Index">Sign up</a>
+                    </li>
+                    <li class="nav-item flex justify-content-end">
+                        <a class="btn btn-outline-light text-light mr-2 @ViewBag.LoginActive" asp-controller="Login" asp-action="login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+    }
+    @if (Context.Session.GetInt32("isAdmin") == 1 && Context.Session.GetInt32("userId") != -1)
+    {
+        Layout = "_AdminLayout";
+    }
+    @if (Context.Session.GetInt32("isAdmin") == 0 && Context.Session.GetInt32("userId") != -1)
+    {
+        Layout = "_CustomerLayout";
+    }
+
+    @if (TempData["AlertMessage"] != null)
+    {
+
+        if (TempData["AlertType"].ToString() == "success")
+        {
+            <div class="container">
+                <div class="alert alert-success d-flex align-items-center" id="alert_box" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg>
+                    <div>
+                        @TempData["AlertMessage"]
+                    </div>
+
+                </div>
+            </div>
+
+        }
+        else
+        {
+            <div class="container">
+                <div class="alert alert-danger d-flex align-items-center" id="alert_box" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg>
+                    <div>
+                        @TempData["AlertMessage"]
+                    </div>
+                </div>
+            </div>
+
+
+        }
+
+    }*@
+
+   @* <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+
+    </div>*@
+@*
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/owl.js" asp-append-version="true"></script>
+    <script src="~/js/slick.js" asp-append-version="true"></script>
+
+    <script src="~/js/site.js" asp-append-version="true">
+    </script>*@
+
+
+    @*@await RenderSectionAsync("Scripts", required: false)*@
+</body>
+</html>

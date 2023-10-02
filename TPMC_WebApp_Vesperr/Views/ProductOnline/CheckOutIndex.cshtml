@@ -1,0 +1,51 @@
+﻿@model TPMC_WebApp_Vesperr.Models.Online.Order
+@{
+    ViewData["Title"] = "CheckOutIndex";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+@{
+    var fullName = $"{User.GetUserProperty(CustomClaimTypes.GivenName)} {User.GetUserProperty(CustomClaimTypes.Surname)}";
+}
+
+
+<h1>Check Out</h1>
+
+<input type="hidden" id="memberid" name="memberid" value="@($"{User.GetUserProperty(CustomClaimTypes.GivenName)} {User.GetUserProperty(CustomClaimTypes.Surname)}")" />
+@if (Model != null && Model.OrderItems != null && Model.OrderItems.Count > 0)
+
+{
+    <table id="cartItemsContainer" class="table">
+        <tr>
+            <th>Member</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        @foreach (var item in Model.OrderItems)
+        {
+            <tr>
+                <td>@item.MemberId</td>
+                <td>@item.ProductName</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price.ToString("C2")</td>
+               @* <td>@(item.Quantity * item.Price).ToString("C2")</td>*@
+                <td>@Model.OrderItems.Where(x => x.ProductId == item.ProductId).Sum(x => x.Quantity * x.Price).ToString("C2")</td>
+            </tr>
+        }
+        <tr>
+            <td class="text-right" colspan="4">Grand Total: @Model.TotalAmount.ToString("C2")</td>
+        </tr>
+        <tr>
+            <td class="text-right" colspan="4">
+                <a class="btn btn-danger" asp-route-memberid=@fullName asp-action="Clear">Payment</a>
+                <a class="btn btn-primary" asp-route-memberid=@fullName asp-action="CheckOut">Checkout</a>
+            </td>
+        </tr>
+    </table>
+
+}
+else
+{
+    <h3 class="display-4 text-center">Your Check out item is empty.</h3>
+}

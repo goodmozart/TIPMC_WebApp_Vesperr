@@ -1,0 +1,149 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    var fullName = $"{User.GetUserProperty(CustomClaimTypes.GivenName)} {User.GetUserProperty(CustomClaimTypes.Surname)}";
+    var user = await UserManager.GetUserAsync(User);
+    
+    if (user != null)
+    {
+        var memberId = user.Id;
+        ViewBag.MemberId = memberId;
+
+        // Use the userId as needed
+    }
+
+}
+
+<div class="container d-flex align-items-center justify-content-between">
+    <div class="logo">
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="~/Home/Index"><img src="~/images/logoX.png" alt="" class="img-fluid"></a>
+    </div>
+
+    <nav id="navbar" class="navbar">
+        <ul>
+            @*<li><a class="nav-link scrollto active" href="~/Home/Index">Home</a></li>*@
+
+            <li class="dropdown">
+                <a href="#"><span>Home</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#Home">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">About</a></li>
+                    <li><a class="nav-link scrollto" href="#members">Members</a></li>
+                    <li><a class="nav-link scrollto" href="#oee">OEE</a></li>
+                    <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+                    <li><a class="nav-link scrollto" href="#team">Team</a></li>
+                    <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                </ul>
+
+            </li>
+            @if (User.IsInRole("Vendor") || User.IsInRole("SuperAdmins") || User.IsInRole("Administrator"))
+            {
+                <li class="dropdown">
+                    <a href="#"><span><b>Vendor</b></span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#"><span>POS</span> <i class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a asp-area="" asp-controller="SalesOrder" asp-action="POS">Point Of Sales</a></li>
+                            </ul>
+                        </li>
+                        <li><a asp-area="" asp-controller="SalesOrder" asp-action="Index">Summary of Total Sales</a></li>
+                        <li><a asp-area="" asp-controller="Product" asp-action="Index">Upload Product</a></li>
+                       @* <li><a href="#">Summary of Total Sales</a></li>*@
+                       @* <li><a href="#">Upload Product</a></li>*@
+                        <li class="dropdown">
+                            <a href="#"><span>Orders</span> <i class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a asp-area="" asp-controller="PurchaseOrder" asp-action="Index">Purchase Order</a></li>
+                                <li><a asp-area="" asp-controller="GoodsReceive" asp-action="Index">Goods Received</a></li>
+                                @*<li><a asp-area="" asp-controller="SalesOrder" asp-action="Index">Sales Order</a></li>*@
+                            </ul>
+                        </li>
+                        <li><a asp-area="" asp-controller="Vendor" asp-action="Index">Vendor Registration</a></li>
+                        <li class="dropdown">
+                            <a href="#"><span>Management</span> <i class="bi bi-chevron-right"></i></a>
+                            <ul>
+
+                                <li><a asp-area="" asp-controller="InvenTran" asp-action="Index">Inventory Trans</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            }
+            @if (User.IsInRole("Members") || User.IsInRole("SuperAdmins") || User.IsInRole("Administrator"))
+            {
+                <li class="dropdown">
+                    <a href="#"><span class="listnav"><b>Online Ordering</b></span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a asp-area="" asp-controller="Categories" asp-action="Index">Categories</a></li>
+                        <li><a asp-area="" asp-controller="Products" asp-action="Index">Update Product</a></li>
+                        <li><a asp-area="" asp-controller="Cart" asp-action="Index" asp-route-memberid=@fullName method="post">Cart</a></li>
+                        <li><a asp-area="" asp-controller="ProductOnline" asp-action="Index" asp-route-memberid="@($"{User.GetUserProperty(CustomClaimTypes.GivenName)} {User.GetUserProperty(CustomClaimTypes.Surname)}")" method="post">Add to Cart</a></li>
+                        <li><a asp-area="" asp-controller="ProductOnline" asp-action="CheckOutIndex" asp-route-memberid=@fullName method="post">View Check out</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#"><span class="listnav">Loans</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="#">Cash Loan</a></li>
+                        <li><a href="#">Appliance Loan</a></li>
+                        <li><a href="~/Home/Testpage">*Test Page</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#"><span>Payments</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li>
+                            <a asp-area="" asp-controller="MemberPayment" asp-action="Index" asp-route-id=@fullName method="post">Payment History</a>
+                        </li>
+                        <li><a href="#">User Payment Summary</a></li>
+                        <li><a href="#">Terms of Deduction</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li>
+                            <a asp-area="" asp-controller="MemberShare" asp-action="Index" asp-route-id=@fullName method="post">Share History</a>
+                        </li>
+                        <li><a href="#">View my Dividend</a></li>
+                        <li><a href="#">E-Learning</a></li>
+                        <li><a href="#">Account Closure</a></li>
+                    </ul>
+                </li>
+            }
+            @if (User.IsInRole("Administrator") || User.IsInRole("SuperAdmins"))
+            {
+                <li class="dropdown">
+                    <a href="#"><span class="listnav">Administrator</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a asp-area="" asp-controller="Admin" asp-action="Main">Admin</a></li>
+                        <li><a asp-area="" asp-controller="Vendor" asp-action="Index">Vendor Registration</a></li>
+                    </ul>
+                </li>
+            }
+            @if (User.IsInRole("SuperAdmins"))
+            {
+                <li class="dropdown">
+                    <a href="#"><span class="listnav"><b>SuperAdmins</b></span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a asp-area="" asp-controller="SuperAdmin" asp-action="Index">SuperAdmin</a></li>
+                        <li><a asp-area="" asp-controller="Role" asp-action="Index">Role</a></li>
+                        <li><a asp-area="" asp-controller="UserLogs" asp-action="Index">Logs</a></li>
+                    </ul>
+                </li>
+            }
+            @if (User.IsInRole("Members") || User.IsInRole("SuperAdmins") || User.IsInRole("Administrator"))
+            {
+                <li><a class="nav-link scrollto" asp-area="" asp-controller="ProductOnline" asp-action="Index"><img src="~/images/cart.png" alt="..." class="avatar-img" style="width: 30px; height: 30px" /></a></li>
+                <li><a class="nav-link scrollto" asp-area="" asp-controller="Chat" asp-action="Index" asp-route-email="@($"{User.GetUserProperty(CustomClaimTypes.Email)}")"><img src="~/images/chat1.png" alt="..." class="avatar-img" style="width: 30px; height: 30px" /></a></li>
+            }
+           
+            <partial name="_LoginPartialNew" />
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+</div>

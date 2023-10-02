@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPMC_WebApp_Vesperr", "TPMC_WebApp_Vesperr\TPMC_WebApp_Vesperr.csproj", "{8C6AAAEE-D395-461A-8052-20C26C7666E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C6AAAEE-D395-461A-8052-20C26C7666E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C6AAAEE-D395-461A-8052-20C26C7666E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C6AAAEE-D395-461A-8052-20C26C7666E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C6AAAEE-D395-461A-8052-20C26C7666E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D6E1482D-362E-410C-B303-6F8089A6C251}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,40 @@
+﻿@model TPMC_WebApp_Vesperr.Models.POS.Product
+
+@{
+    ViewData["Title"] = "Details Product";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+
+<div>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PriceSell)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PriceSell)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PricePurchase)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PricePurchase)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProductId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

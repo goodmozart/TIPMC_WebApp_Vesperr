@@ -1,0 +1,31 @@
+﻿@*@model IEnumerable<Message>
+<ol class="breadcrumb float-sm-right">
+    
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+
+    @foreach (var message in Model)
+    {
+        if (Model.Last() == message)
+        {
+            <li class="breadcrumb-item active">@message.DisplayName</li>
+        }
+        else
+        {
+            <li class="breadcrumb-item"><a href="@message.URLPath"> @message.DisplayName</a></li>
+        }
+    }
+</ol>*@
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container-fluid">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>TPMC</h2>
+                    <ol>
+                        <li><a href="~/Home/index.html">Home</a></li>
+                        <li>@ViewBag.Title</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <!-- End Breadcrumbs -->

@@ -1,0 +1,85 @@
+﻿@*@model IEnumerable<TPMC_WebApp_Vesperr.Models.Online.CartItem>*@
+@model TPMC_WebApp_Vesperr.Models.Online.CartViewModel
+@{
+    var fullName = $"{User.GetUserProperty(CustomClaimTypes.GivenName)} {User.GetUserProperty(CustomClaimTypes.Surname)}";
+}
+
+
+@{
+    ViewData["Title"] = "Cart Overview";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+
+<h1>Cart Overview</h1>
+<input type="hidden" id="memberid" name="memberid" value="@($"{User.GetUserProperty(CustomClaimTypes.GivenName)} {User.GetUserProperty(CustomClaimTypes.Surname)}")" />
+@if (Model.CartItems.Count > 0)
+{
+             <table id="cartItemsContainer" class="table">
+        <tr>
+                <th>Member</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th></th>
+                <th>Price</th>
+                <th>Total</th>
+        </tr>
+        @foreach (var item in Model.CartItems)
+        {
+                    <tr>
+                        <td>@item.MemberId</td>                                
+                        <td>@item.ProductName</td>
+                        <td>@item.Quantity</td>
+                        <td>
+
+                    <form asp-controller="Cart"  method="post">
+                        <input type="hidden" name="id" value="@item.ProductId" />
+                        <button asp-route-memberid=@fullName asp-action="Add" type="submit" class="btn btn-primary">+</button>
+                        <button asp-route-memberid=@fullName asp-action="Minus" type="submit" class="btn btn-info">-</button>
+                    </form>
+                        </td>
+                        <td>@item.Price.ToString("C2")</td>
+                        <td>@Model.CartItems.Where(x => x.ProductId == item.ProductId).Sum(x => x.Quantity * x.Price).ToString("C2")</td>
+                        </tr>
+        }
+                            <tr>
+                                    <td class="text-right" colspan="4">Grand Total: @Model.GrandTotal.ToString("C2")</td>
+                            </tr>
+                            <tr>
+                                    <td class="text-right" colspan="4">
+                                    <a class="btn btn-danger" asp-route-memberid=@fullName asp-action ="Clear">Clear Cart</a>
+                                    <a class="btn btn-primary" asp-route-memberid=@fullName asp-action="CheckOut">Checkout</a>
+                                    </td>
+                            </tr>
+                    </table>
+
+}
+else
+{
+                    <h3 class="display-4 text-center">Your cart is empty.</h3>
+}
+
+@section Scripts{
+       <script>
+        $(document).ready(function() {
+            var memberIdValue = $('#memberid').val();
+            console.log(memberIdValue);
+                var url = '@Url.Action("Index", "Cart")' + '?memberid=' + encodeURIComponent(memberIdValue);
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function(response) {
+                    //// Update the cart items table body
+                    //var cartItemsTableBody = $('#cartItemsContainer tbody');
+                    //cartItemsTableBody.html(response.CartItemsHtml);
+                    //// Update the grand total
+                    //$('#grandTotal').text(response.GrandTotal);
+                },
+                error: function(error) {
+                    console.log('Error:', error);
+                }
+            });
+        });
+    </script>
+
+
+}

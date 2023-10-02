@@ -1,0 +1,162 @@
+﻿@model IEnumerable<TPMC_WebApp_Vesperr.Models.POS.Member>
+@{
+    var errorMessage = ViewBag.ErrorMessage as string;
+    var fullName = $"{User.GetUserProperty(CustomClaimTypes.GivenName)} {User.GetUserProperty(CustomClaimTypes.Surname)}";
+}
+
+@{
+    ViewData["Title"] = "Member Update Payment";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+
+<h1>Member Profile</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card card-default">
+            <div class="card-header card-header-border-bottom">
+                <div class="row justify-content-between w-100">
+                    <div class="col-sm-4">
+                        @*<h4>Products</h4>*@
+                    </div>
+                    <div class="col-sm-4 text-right">
+                        @*<button asp-action="Create" class="btn btn-success">Create New</button>*@
+                        <a </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped table-responsive" id="grid">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EmpNumber)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LastName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Phone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Address2)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Department)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Section)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Designation)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreditLimits)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AccessLevel)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DateJoined)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EmpNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FirstName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LastName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Address2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Department)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Section)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Designation)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreditLimits)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccessLevel)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateJoined)
+                                </td>
+                                <td class=" no-wrap">
+                                    <a asp-controller="MemberPayment" asp-action="CreateNew" asp-route-id="@item.MemberId" class="btn btn-warning">New</a> |
+                                    @*<a asp-controller="MemberShare" asp-action="Details" asp-route-id="@item.MemberId" class="btn btn-success">Details</a> |*@
+                                    <a asp-controller="MemberPayment" asp-action="Index" asp-route-id="@item.Name" class="btn btn-danger">Edit</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            //$('#grid').DataTable();
+            new DataTable('#grid', {
+                columnDefs: [{ width: 250, targets: 15 }],
+                fixedColumns: true,
+                paging: true,
+                scrollCollapse: true,
+                scrollX: true,
+                scrollY: 300
+            });
+
+        });
+    </script>
+}

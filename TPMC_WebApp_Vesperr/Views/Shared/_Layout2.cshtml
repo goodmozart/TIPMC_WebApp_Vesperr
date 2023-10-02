@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>@ViewData["Title"]</title>
+
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <!-- Favicons -->
+    <link href="~/images/logo.png" rel="icon">
+    <link href="~/images/logo.png" rel="apple-touch-icon">
+
+    <environment names="Development">
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+    <link rel="stylesheet" href="~/lib/ionicons/css/ionicons.css" />
+    <link rel="stylesheet" href="~/lib/admin-lte/dist/css/adminlte.css" />
+     <link rel="stylesheet" href="~/css/site.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+    <link href="~/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    </environment>
+
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/lib/ionicons/css/ionicons.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/lib/admin-lte/dist/css/adminlte.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+
+    <environment names="Development">
+        <script src="~/lib/jquery/jquery.js" asp-append-version="true"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.js" asp-append-version="true"></script>
+        <script src="~/lib/admin-lte/dist/js/adminlte.js" asp-append-version="true"></script>
+        @* <script src="~/lib/pace/pace.js" asp-append-version="true"></script>*@
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- Vendor JS Files -->
+    <script src="~/assets/"></script>
+    <script src="~/assets/vendor/aos/aos.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/lib/jquery/jquery.min.js" asp-append-version="true"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.min.js" asp-append-version="true"></script>
+        <script src="~/lib/admin-lte/dist/js/adminlte.min.js" asp-append-version="true"></script>
+        @* <script src="~/lib/pace/pace.min.js" asp-append-version="true"></script>*@
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+     <style>
+        #getstarted {
+            font-size: small;
+            padding: 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+            border-radius: 20px;
+            border: 2px solid #0275d8;
+        }
+
+        .navbar {
+            font-size: small;
+        }
+    </style>
+
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Main Header -->
+        @await Component.InvokeAsync("Header")
+      @*  <!-- Left side column. contains the logo and sidebar -->
+        @await Component.InvokeAsync("Sidebar")*@
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            @await Component.InvokeAsync("PageHeader")
+                        </div>
+                        <div class="col-sm-6">
+                            @await Component.InvokeAsync("Breadcrumb")
+                        </div>
+                        <br />
+                        @await Component.InvokeAsync("PageAlert")
+                    </div>
+                </div>
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Your Page Content Here -->
+                    @RenderBody()
+                </section>
+                <!-- /.content -->
+            </div>
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Main Footer -->
+        @await Component.InvokeAsync("Footer")
+        <!-- Control Sidebar -->
+        @await Component.InvokeAsync("ControlSidebar")
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+    </div>
+    <!-- ./wrapper -->
+    <!-- Optionally, you can add Slimscroll and FastClick plugins.
+    Both of these plugins are recommended to enhance the
+    user experience. Slimscroll is required when using the
+    fixed layout. -->
+
+     <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/aos/aos.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+
+    @RenderSection("scripts", required: false)
+    <script>
+        useSubmitClass();
+        useDeleteConfirmation();
+    </script>
+</body>
+</html>

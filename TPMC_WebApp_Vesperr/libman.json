@@ -1,0 +1,87 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery@3.6.0",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "jquery-validate@1.19.0",
+      "destination": "wwwroot/lib/jquery-validation/"
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.11",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
+    },
+    {
+      "library": "datatables@1.10.21",
+      "destination": "wwwroot/lib/datatables/"
+    },
+    {
+      "library": "fastclick@1.0.6",
+      "destination": "wwwroot/lib/fastclick/"
+    },
+    {
+      "library": "font-awesome@5.15.3",
+      "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "icheck-bootstrap@3.0.1",
+      "destination": "wwwroot/lib/icheck-bootstrap/"
+    },
+    {
+      "library": "twitter-bootstrap@4.6.0",
+      "destination": "wwwroot/lib/twitter-bootstrap/"
+    },
+    {
+      "library": "popper.js@2.11.8",
+      "destination": "wwwroot/lib/popper.js/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "sircl@2.3.2",
+      "destination": "wwwroot/lib/sircl/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "popper.js@2.11.8",
+      "destination": "wwwroot/lib/popper.js/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "admin-lte@3.1.0",
+      "destination": "wwwroot/lib/admin-lte/",
+      "files": [
+        "dist/css/adminlte.css",
+        "dist/css/adminlte.css.map",
+        "dist/css/adminlte.min.css",
+        "dist/js/adminlte.js",
+        "dist/js/adminlte.js.map",
+        "dist/js/adminlte.min.js",
+        "dist/js/adminlte.min.js.map",
+        "dist/img/AdminLTELogo.png"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "sweetalert2@11.7.20",
+      "destination": "wwwroot/lib/sweetalert2/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "toastr.js@2.1.4",
+      "destination": "wwwroot/lib/toastr/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "axios@1.4.0",
+      "destination": "wwwroot/lib/axios/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "@microsoft/signalr@latest",
+      "destination": "wwwroot/lib/microsoft/signalr/"
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+﻿@model TPMC_WebApp_Vesperr.Models.POS.SalesOrder
+@{
+    ViewData["Title"] = "POS - Point of sales";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+
+}
+
+<head>
+    <base href='@Url.Content("~/")'>
+    <!--numpad-->
+    <link rel="stylesheet" href="~/lib/jquerey-numpad/jquery.numpad.css" />
+    <!--numpad-->
+    <style type="text/css">
+        .nmpd-grid {
+            border: none;
+            padding: 20px;
+            background: white;
+        }
+
+            .nmpd-grid > tbody > tr > td {
+                border: none;
+            }
+
+    </style>
+</head>
+
+<div class="row">
+    <div class="col-md-5">
+        <table class="table" id="productLine" style="width:100%">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Price (Sell)</th>
+                    <th scope="col">Price (Purchase)</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="col-md-7">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label class="control-label">Member Name</label>
+                    <select asp-for="MemberId" id="memberId" class="form-control" asp-items="ViewBag.MemberId"></select>
+                    <span asp-validation-for="MemberId" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Order Number #</label>
+                    <input class="form-control" id="orderNumber" readonly />
+                    <hidden id="salesOrderId"></hidden>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Product</label>
+                    <input class="form-control" id="product" readonly />
+                    <hidden id="productId"></hidden>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Quantity</label>
+                    <input type="number" class="form-control" id="quantity" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">Price</label>
+                    <input type="number" class="form-control" id="price" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table" id="posLine" style="width:100%">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">SubTotal</th>
+                            <th scope="col">Disc.</th>
+                            <th scope="col">Total</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Total</label>
+                    <input class="form-control" id="total" readonly />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Payment</label>
+                    <input type="number" class="form-control" id="payment" onchange ="test()" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Change</label>
+                    <input class="form-control" id="change" readonly />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <button onclick="initiateNewPOSOrder()" class="btn btn-block btn-success">New</button>
+            </div>
+            <div class="col-md-4">
+                <button onclick="posLineInsert()" class="btn btn-block btn-warning">Insert</button>
+            </div>
+            <div class="col-md-4">
+                <button onclick="cancel()" class="btn btn-block btn-danger">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+   @* @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }*@
+    <script>
+        
+        var baseUrl = $('base').attr('href');
+        var appBaseUrl = baseUrl + 'api/';
+
+        // These defaults will be applied to all NumPads within this document!
+        $.fn.numpad.defaults.gridTpl = '<table class="table modal-content"></table>';
+        $.fn.numpad.defaults.backgroundTpl = '<div class="modal-backdrop in"></div>';
+        $.fn.numpad.defaults.displayTpl = '<input type="text" class="form-control" />';
+        $.fn.numpad.defaults.buttonNumberTpl = '<button type="button" class="btn btn-default"></button>';
+        $.fn.numpad.defaults.buttonFunctionTpl = '<button type="button" class="btn" style="width: 100%;"></button>';
+        $.fn.numpad.defaults.onKeypadCreate = function () 
+        { 
+            $(this).find('.done').addClass('btn-primary'); 
+        };
+        // jquery numpad
+
+        $(document).ready(function () {
+            //numpad
+            $('#quantity').numpad();
+            $('#price').numpad();
+            $('#payment').numpad();
+            //datatables
+            initProductLine();
+        });
+
+        function initPosLine() {
+            var salesOrderId = $("#salesOrderId").val();
+            $("#posLine").DataTable({
+                "destroy": true,
+                "ajax": {
+                    "type": "GET",
+                    "url": appBaseUrl + "SalesOrderLine/GetLines?salesOrderId=" + salesOrderId + "",
+                    "dataSrc": function (data) {
+
+                        return data.lines
+                    }
+                },
+                "columns": [
+                    { "data": "product.name" },
+                    { "data": "quantity" },
+                    { "data": "price" },
+                    { "data": "subTotal" },
+                    { "data": "discount" },
+                    { "data": "total" },
+                    {
+                        "data": "salesOrderLineId",
+                        "render": function (data) {
+                            var btnDelete = '<button onclick="deleteLine(\'' + data + '\')" class="btn btn-danger">DELETE</button>';
+                            return btnDelete;
+                        }
+                    }
+                ],
+                "language": {
+                    "emptyTable": "data is empty."
+                },
+                "lengthChange": false,
+                "bFilter": false,
+                "paging": false,
+                "info": false
+            });
+
+            return false;
+        }
+
+        function initProductLine() {
+            
+            //$.fn.dataTable.ext.errMode = 'throw';
+            
+            $("#productLine").DataTable({
+                "ajax": {
+                    "type": "GET",
+                    //"url": "~/api/Product",
+                    "url": '@Url.Action("Product", "Api")',
+                    "dataSrc": function (data) {
+                        return data;
+                    }
+                },
+                "columns": [
+                    { "data": "name" },
+                    { "data": "priceSell" },
+                    { "data": "pricePurchase" },
+                    {
+                        "data": "productId",
+                        "render": function (data) {
+                            var btnSelect = '<button onclick="selectProduct(\'' + data +'\')" class="btn btn-info">Select</button>';
+                            return btnSelect;
+                        }
+                    }
+                ],
+                "language": {
+                    "emptyTable": "data is empty."
+                },
+                "lengthChange": false,
+                "pageLength": 5,
+                "bFilter": false,
+                "paging": true,
+                "info": false
+            });
+
+            return false;
+        }
+
+        function selectProduct(productId) {
+               
+            var salesOrderNumber = $("#orderNumber").val();
+            
+            if (salesOrderNumber) {
+                axios.get(appBaseUrl + 'Product/' + productId
+                )
+                .then(function (response) {
+                    $("#productId").val(response.data.productId);
+                    $("#product").val(response.data.name);
+                    $("#price").val(response.data.priceSell);
+                    $("#quantity").val(1);
+                    Swal.fire(response.data.name + ' is selected.','', 'success')
+                })
+                .catch(function (error) {
+
+                })
+                .then(function () {
+
+                });
+
+            } else {
+                Swal.fire('Order Number # empty. Please create new order first.','', 'error')
+            }
+
+            return false;
+        }
+                function initiateNewPOSOrder() {
+                
+                var memberID = $("#memberId").val();
+                axios.post(appBaseUrl+'SalesOrder/InitiateNewPOSTrans', {
+                    "MemberId": memberID
+                })
+                .then(function (response) {
+                        $("#orderNumber").val(response.data.number);
+                        $("#salesOrderId").val(response.data.salesOrderId);
+                        initPosLine();
+                        Swal.fire('New order created with number: ' + response.data.number, '', 'success')
+                    })
+                    .catch(function (error) {
+
+                    })
+                    .then(function () {
+
+                    });
+                return false;
+            }
+           
+            //// Assuming you have jQuery library loaded in your project
+            //function initiateNewPOSOrder() {
+            //    var memberID = $("#memberId").val();
+            //    var SalesMember = {
+            //        "MemberId": memberID  // Replace this with the actual member ID you want to send
+            //    };
+
+            //    $.ajax({
+            //        url: "/api/SalesOrder/InitiateNewPOSTrans",
+            //        type: "POST",
+            //        dataType: "json",
+            //        contentType: "application/json",
+            //        data: JSON.stringify(SalesMember),
+            //        success: function (data) {
+            //            // Handle the success response here
+            //            console.log("Sales order created successfully:", data);
+            //            $("#orderNumber").val(data.number);
+            //            $("#salesOrderId").val(data.salesOrderId);
+            //            Swal.fire('New order created with number: ' + data.number, '', 'success')
+            //        },
+            //        error: function (xhr, status, error) {
+            //            // Handle the error response here
+            //            Swal.fire('New order created with number: ' + data.number, '', 'error')
+            //        }
+            //    });
+            //}  
+
+
+        function posLineInsert() {
+            
+            
+            var quantity = $("#quantity").val();
+            var price = $("#price").val();
+            var number = $("#orderNumber").val();
+
+            axios.post(appBaseUrl + 'SalesOrderLine', {
+            //axios.post('/api/SalesOrderLine', {
+                
+                "SalesOrderId": $("#salesOrderId").val(),
+                "ProductId": $("#productId").val(),
+                "Quantity": quantity,
+                "Price": price,
+                "SubTotal": quantity * price,
+                "Discount": 0,
+                "Total": quantity * price,
+                "Number": number
+
+            })
+            .then(function (response) {
+
+                    var product = $("#product").val();
+                    var table = $("#posLine").DataTable();
+
+                    // Reload the DataTable using AJAX
+                    table.ajax.reload(function () {
+                        // Callback function, called after the reload is complete
+                        Swal.fire('Insert POS line success for item: ' + product, '', 'success');
+
+                        // Call the function to retrieve data from the first row of the specific column
+                        //getFirstRowData();
+                        calculateAndDisplaySum();
+                    });
+            })
+            .catch(function (error) {
+                    //console.log(response);
+            })
+            .then(function () {
+
+            });
+            return false;
+        }
+
+        function deleteLine(salesOrderLineId) {
+            axios.delete(appBaseUrl + 'SalesOrderLine/' + salesOrderLineId)
+                .then(function (response) {
+                    
+                    var table = $("#posLine").DataTable();
+
+                    // Reload the DataTable using AJAX
+                    table.ajax.reload(function () {
+                        // Callback function, called after the reload is complete
+                        Swal.fire('POS line success Deleted: ', '', 'warning');
+
+                        // Call the function to retrieve data from the first row of the specific column
+                        //getFirstRowData();
+                        calculateAndDisplaySum();
+                    });
+                
+                
+                })
+                .catch(function (error) {
+                    Swal.fire(error, '', 'error');
+                })
+
+                .then(function () {
+                });
+            return false;
+        }
+
+
+        function DeleteSalesOrder(salesOrderLineId) {
+
+            axios.delete(appBaseUrl + 'SalesOrder/' + salesOrderLineId)
+                .then(function (response) {
+
+                })
+                .catch(function (error) {
+
+                })
+                .then(function () {
+
+                });
+            return false;
+        }
+
+        function test()
+        {
+                var payment = $("#payment").val();
+                var total = $("#total").val();
+                var change = total- payment
+                
+                $("#change").val(change);
+         }
+
+        function cancel()
+        {
+                 location.reload();     
+        }
+
+        function calculateAndDisplaySum() {
+            var table = $('#posLine').DataTable();
+
+            // Make sure the table is initialized and data is loaded before calculating the sum
+            if (table) {
+                var columnIndexToSum = 5; // Index of the column you want to sum
+
+                // Get the column's data
+                var columnData = table.column(columnIndexToSum).data();
+
+                // Convert the data to an array of numbers for calculation
+                var numericData = columnData.map(parseFloat);
+
+                // Calculate the sum
+                var sumTotal = numericData.reduce(function (a, b) {
+                    return a + b;
+                }, 0);
+
+                console.log(sumTotal);
+
+                // Display the sum in the designated element
+                $("#total").val(sumTotal);
+            } else {
+                console.log("Table not initialized or data not loaded.");
+            }
+        }
+        function getFirstRowData() {
+            var table = $('#posLine').DataTable();
+
+            // Check if the DataTable is initialized
+            if (table && table.data().count() > 0) {
+                var columnIndex = 5; // Index of the column you want to retrieve data from
+
+                // Get the data from the specified column
+                var columnData = table.column(columnIndex).data();
+
+                if (columnData.length > 0) {
+                    var firstRowData = columnData[0]; // Get the data from the first row
+
+                    // Display the first row data in the console
+                    console.log("First Row Data:", firstRowData);
+                } else {
+                    console.log("Column data is empty.");
+                }
+            } else {
+                console.log("Table not initialized or data not loaded.");
+            }
+        }
+
+
+    </script>
+}
+

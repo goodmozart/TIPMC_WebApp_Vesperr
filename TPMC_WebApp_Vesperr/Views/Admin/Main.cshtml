@@ -1,0 +1,480 @@
+﻿@{
+    ViewData["Title"] = "Admin | Main";
+    Layout = "_LayoutNew";
+}
+
+@{
+    var fullName = $"{User.GetUserProperty(CustomClaimTypes.GivenName)} {User.GetUserProperty(CustomClaimTypes.Surname)}";
+}
+
+
+<head>
+    <style>
+        .boxed {
+            border: 1px solid #FF0060;
+            border-radius: 8px;
+            padding: 12px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .mcname {
+            font-family: Calibri;
+            font-weight: bold;
+        }
+
+        .statlabel {
+            font-size: smaller;
+        }
+
+        h3 {
+            color: #FF0060;
+        }
+
+        .optionbtn {
+            font-size: large;
+            color: #FF0060;
+        }
+
+        #box:hover {
+            background-color: #FFB4B4;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            padding: 4px;
+        }
+
+        .details {
+            font-size: small;
+            color: #3C486B;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <main id="main">
+        <!-- ======= Portfolio Details Section ======= -->
+        <section id="portfolio-details" class="portfolio-details">
+            <div class="container-fluid">
+                <div class="row gy-4">
+                    <h3>Admin All Services</h3>
+                    @* <p>
+                    Manage, Update users details, approved and dissaproved vendor new product request
+                    </p>*@
+                    <section id="clients" class="table">
+                        <table>
+                            <tr>
+                                <th>
+                                    @* <a href="~/Members/Index">*@
+                                    <a asp-area="" asp-controller="Member" asp-action="Index">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Member Profile</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        @*<i class="fa fa-shopping-cart fa-4x" aria-hidden="true"></i>*@
+                                                        <img src="~/images/profile.png" alt="..." class="avatar-img" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        <b>Update member informations</b>
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a asp-area="" asp-controller="Member" asp-action="IndexMember">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Member Share</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/member_share.png" alt="..." class="avatar-img" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        <b>Update member share</b>
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="~/Admin/Main">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Account Receivable</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/Account_Receivable.png" alt="..." class="avatar-img" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        sample text details
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <a asp-area="" asp-controller="Member" asp-action="IndexPayment">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Payment Summary</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/Payment_Summary.png" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        <b>Update member payment</b>
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="~/Admin/Main">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Loan Summary</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/loan_summary.jpg" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        sample text details
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="~/Admin/Main">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Manage Loan</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/manage_loan.jpg" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        sample text details
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <a href="~/Admin/Main">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Dividend</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/dividend.png" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        sample text details
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="~/Admin/Main">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Account Closure Summary</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/account_closure_summary.png" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        sample text details
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                                <th>
+                                    @*<a href="~/Admin/Main">*@
+                                    <a asp-area="" asp-controller="Products" asp-action="Index">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Product</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/product.png" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        <b>Update Product</b>
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <a href="~/Admin/Main">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Coop e-learning</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/e-learning.png" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        sample text details
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                                <th>
+                                    @*<a href="~/Pos/POS">*@
+                                        <a asp-area="" asp-controller="POS" asp-action="Pos">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">POS Report</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/pos_report.png" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        <b>POST to Sale Report</b>
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="~/Pos/POS">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">POS Sales</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/pos_sales.jpg" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        <b>POST to Sale Sales</b>
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <a href="~/Admin/Main">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Inventory</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/inventory.png" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        sample text details
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="~/Admin/Main">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Cash In/Out</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/cash_in_out.png" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        sample text details
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="~/Admin/Main">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Loan Ledger</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/loan_ledger.png" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        sample text details
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <a href="~/Admin/Main">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Vendor Summary of Total sales</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/vendor_summary_total_sales.png" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        sample text details
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                                <th>
+                                    @*<a href="~/Admin/Main">*@
+                                    <a asp-area="" asp-controller="ProductOnline" asp-action="CheckOutIndex" asp-route-memberid=@fullName method="post">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Summary of List Purchased</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/summary_list_purchased.jpg" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        <b>View All Check Out</b>
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="~/Admin/Main">
+                                        <div class="boxed" id="box">
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <h4 class="optionbtn">Others</h4>
+                                                    </th>
+                                                    <th style="text-align:right" rowspan="2">
+                                                        <img src="~/images/others.png" alt="..." class="avatar-img rounded-circle" style="width: 45px; height: 45px" />
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="details">
+                                                        sample text details
+                                                    </th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </a>
+                                </th>
+                            </tr>
+                        </table>
+                    </section>
+
+                </div>
+            </div>
+        </section><!-- End Portfolio Details Section -->
+    </main><!-- End #main -->
+
+</body>
+
+
+

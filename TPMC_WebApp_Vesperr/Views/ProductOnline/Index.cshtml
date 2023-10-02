@@ -1,0 +1,109 @@
+﻿@model IEnumerable<TPMC_WebApp_Vesperr.Models.Online.ProductOnline>
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using TPMC_WebApp_Vesperr.ViewComponents
+@{
+    var fullName = $"{User.GetUserProperty(CustomClaimTypes.GivenName)} {User.GetUserProperty(CustomClaimTypes.Surname)}";
+}
+
+@{
+    ViewData["Title"] = "Product";
+    Layout = "~/Views/Shared/_LayoutOnline.cshtml";
+}
+
+<h1>Product</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<head>
+  <style>
+  .pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: blue;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+
+    </style>
+
+</head>
+<body>
+<div class="row">
+        <input type="hidden" id="memberid" name="memberid" value=@fullName />
+         <!-- Loop through the list of products -->
+            @foreach (var item in Model)
+            {
+                    <div class="col-4">
+                        <img src="~/media/products/@item.Image" class="img-fluid" alt="" />
+                            <h4>@item.Name</h4>
+                            <div>
+                        @Html.Raw(item.Description)
+                             </div>
+                            <p>
+                        @item.Price.ToString("C2")
+                            </p>
+                            <p>
+                               <form asp-controller="Cart" asp-action="AddCartItem" asp-route-memberid=@fullName method="post">
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                                </form>
+                            </p>
+                    </div>
+            }
+     <!-- Add pagination controls -->
+            @if (ViewBag.TotalPages > 1)
+            {
+               <div class="d-flex w-100 justify-content-center">
+                    <div class="pagination">
+                        @if (ViewBag.PageNumber > 1)
+                        {
+
+                                    <a href="@Url.Action("Index", new { categorySlug = ViewBag.CategorySlug, p = ViewBag.PageNumber - 1 })">Previous</a>
+
+                        }
+
+                        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                        {
+
+                                    <a href="@Url.Action("Index", new { categorySlug = ViewBag.CategorySlug, p = i })" class="@(i == ViewBag.PageNumber ? "active" : "")">@i</a>
+
+
+                        }
+
+                        @if (ViewBag.PageNumber < ViewBag.TotalPages)
+                        {
+
+                                    <a href="@Url.Action("Index", new { categorySlug = ViewBag.CategorySlug, p = ViewBag.PageNumber + 1 })">Next</a>
+
+
+                        }
+                    </div>
+               </div>
+
+            }
+</div>
+
+</body>
+
+@section Scripts{
+        <script>
+        $(document).ready(function() {
+            // Get the value of the hidden input field
+            var memberIdValue = $('#memberid').val();
+                console.log(memberIdValue);
+        });
+    </script>
+
+    <script>
+
+
+    </script>
+
+
+}
+

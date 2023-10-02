@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<li></li>
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item dropdown">
+        <a style="margin-left: 20px" href="#" id="getstarted">@User.GetUserProperty(CustomClaimTypes.GivenName) @User.GetUserProperty(CustomClaimTypes.Surname)<i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></a>
+        <ul>
+            <form asp-controller="Member" asp-action="EditNew" asp-route-email="@User.GetUserProperty(CustomClaimTypes.Email)">
+                <button class="btn btn-light">Profile</button>
+            </form>
+
+            <form asp-controller="Account" asp-action="LogOff" method="post">
+                <button class="btn btn-light">Sign out</button>
+            </form>
+        </ul>
+    </li>
+}
+else
+{
+    <li class="dropdown">
+        <a style="margin-left: 20px" href="#" id="getstarted">Get Started <i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></a>
+        <ul>
+            <li><a class="nav-link text-dark" href="~/Account/Login">Login</a></li>
+        </ul>
+    </li>
+}

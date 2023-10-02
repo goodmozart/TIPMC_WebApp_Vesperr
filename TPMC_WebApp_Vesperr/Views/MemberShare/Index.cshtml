@@ -1,0 +1,155 @@
+﻿@model IEnumerable<TPMC_WebApp_Vesperr.Models.TPMC.MemberShares>
+@{
+    var errorMessage = ViewBag.ErrorMessage as string;
+    decimal totalAmount = 0;
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            totalAmount += item.Amount ?? 0;
+        }
+    }
+}
+
+@{
+    ViewData["Title"] = "Update Member Share";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+
+<h1>MEMBER SHARE</h1>
+
+<p class="text-right grand-total">Total Investment: @totalAmount.ToString("C2")</p>
+
+@if(Model != null)
+{
+    <table class="table" id="grid">
+        <thead>
+            <tr>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.MemberId)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.EmpNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Department)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Section)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DatePosted)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumberShare)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Remarks)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UpdateDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                   @*  <td>
+                        @Html.DisplayFor(modelItem => item.MemberId)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmpNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Section)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DatePosted)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberShare)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Remarks)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdateDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    @if (User.IsInRole("SuperAdmins") || User.IsInRole("Administrator"))
+                    {
+                        <td class=" no-wrap">
+                            <a asp-action="Edit" asp-route-id="@item.ShareId" class="btn btn-warning">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ShareId" class="btn btn-success">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ShareId" class="btn btn-danger">Delete</a>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <h3 class="display-4 text-center">No Data Found!!!</h3>
+}
+
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            //$('#grid').DataTable();
+            new DataTable('#grid', {
+                columnDefs: [{ width: 250, targets: 15 }],
+                fixedColumns: true,
+                paging: true,
+                scrollCollapse: true,
+                scrollX: true,
+                scrollY: 300
+            });
+
+        });
+    </script>
+    <script>
+        if (errorMessage) {
+            alert(errorMessage);
+        }
+    </script>
+}

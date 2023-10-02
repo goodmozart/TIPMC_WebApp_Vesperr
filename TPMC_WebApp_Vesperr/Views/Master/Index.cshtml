@@ -1,0 +1,56 @@
+﻿@model IEnumerable<TPMC_WebApp_Vesperr.Models.POS.Member>
+
+@{
+    ViewData["Title"] = "Member Profile";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+
+<h1>Member Profile</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card card-default">
+            <div class="card-header card-header-border-bottom">
+                <div class="row justify-content-between w-100">
+                    <div class="col-sm-4">
+                        @*<h4>Products</h4>*@
+                    </div>
+                    <div class="col-sm-4 text-right">
+                        <a asp-action="Create" class="btn btn-primary">Create New</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped table-responsive" id="grid">
+                    <thead>
+                        
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            //$('#grid').DataTable();
+            new DataTable('#grid', {
+                columnDefs: [{ width: 250, targets: 15 }],
+                fixedColumns: true,
+                paging: true,
+                scrollCollapse: true,
+                scrollX: true,
+                scrollY: 300
+            });
+
+        });
+    </script>
+}
