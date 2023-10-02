@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
-using TPMC_WebApp_Vesperr.Data;
+using TIPMC_WebApp_Vesperr.Data;
 
-namespace TPMC_WebApp_Vesperr.ViewComponents
+namespace TIPMC_WebApp_Vesperr.ViewComponents
 {
     public class CategoriesViewComponent : ViewComponent
     {

@@ -1,5 +1,5 @@
-﻿using TPMC_WebApp_Vesperr.Common.Attributes;
-using TPMC_WebApp_Vesperr.Models;
+﻿using TIPMC_WebApp_Vesperr.Common.Attributes;
+using TIPMC_WebApp_Vesperr.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -9,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace TPMC_WebApp_Vesperr.Controllers
+namespace TIPMC_WebApp_Vesperr.Controllers
 {
     public class HomeControllerNew : Controller
     {

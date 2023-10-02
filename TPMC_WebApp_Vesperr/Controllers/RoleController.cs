@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using TPMC_WebApp_Vesperr.Models;
-using TPMC_WebApp_Vesperr.Models.RoleViewModels;
+using TIPMC_WebApp_Vesperr.Models;
+using TIPMC_WebApp_Vesperr.Models.RoleViewModels;
 
-namespace TPMC_WebApp_Vesperr.Controllers
+namespace TIPMC_WebApp_Vesperr.Controllers
 {
     [Authorize(Roles = "SuperAdmins")]
     public class RoleController : Controller

@@ -3,7 +3,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 
-namespace TPMC_WebApp_Vesperr.ViewComponents
+namespace TIPMC_WebApp_Vesperr.ViewComponents
 {
     public class ControlSidebarViewComponent : ViewComponent
     {

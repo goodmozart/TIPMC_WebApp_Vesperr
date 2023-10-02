@@ -1,8 +1,8 @@
-﻿using TPMC_WebApp_Vesperr.Models;
+﻿using TIPMC_WebApp_Vesperr.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace TPMC_WebApp_Vesperr.ViewComponents
+namespace TIPMC_WebApp_Vesperr.ViewComponents
 {
     public class MenuTaskViewComponent : ViewComponent
     {

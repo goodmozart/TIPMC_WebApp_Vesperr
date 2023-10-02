@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace TPMC_WebApp_Vesperr.Controllers
+namespace TIPMC_WebApp_Vesperr.Controllers
 {
     public class GetMemberId : Controller
     {

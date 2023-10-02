@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TPMC_WebApp_Vesperr.Data;
-using TPMC_WebApp_Vesperr.Models.POS;
+using TIPMC_WebApp_Vesperr.Data;
+using TIPMC_WebApp_Vesperr.Models.POS;
 
-namespace TPMC_WebApp_Vesperr.Controllers.Api
+namespace TIPMC_WebApp_Vesperr.Controllers.Api
 {
     [Route("api/[controller]")]
     [ApiController]

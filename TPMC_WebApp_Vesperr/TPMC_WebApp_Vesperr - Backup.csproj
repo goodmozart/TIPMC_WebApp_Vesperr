@@ -1,0 +1,137 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <AssemblyName>TIPMC_WebApp_Vesperr</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>TIPMC_WebApp_Vesperr</PackageId>
+    <UserSecretsId>aspnet-TIPMC_WebApp_Vesperr-c9131f1e-93fb-4772-8c8b-1d4c77bf4354</UserSecretsId>
+	<EnvironmentName>Development</EnvironmentName>
+  </PropertyGroup>
+    <!--<PropertyGroup Condition=" '$(Configuration)' == '' Or '$(Configuration)' == 'Debug'">
+		<EnvironmentName>Development</EnvironmentName>
+	</PropertyGroup>-->
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20230813083402_memberidtoproduct.cs" />
+    <Compile Remove="Data\Migrations\20230813083402_memberidtoproduct.Designer.cs" />
+    <Compile Remove="Models\TIPMC\MemberShareModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\Index1.cshtml" />
+    <Content Remove="wwwroot\DataTables\sum%28%29.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="wwwroot\**\*;Views\**\*;Areas\**\Views">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="6.0.20" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.21">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="BundlerMinifier.Core" Version="3.2.449" />
+    <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.175" />
+  </ItemGroup>
+
+  <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
+    <Exec Command="dotnet bundle" />
+  </Target>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+    <DotNetCliToolReference Include="BundlerMinifier.Core" Version="2.8.391" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Cart\Create.cshtml" />
+    <None Include="Views\Cart\Delete.cshtml" />
+    <None Include="Views\Cart\Details.cshtml" />
+    <None Include="Views\Cart\Edit.cshtml" />
+    <None Include="Views\Cart\Index.cshtml" />
+    <None Include="Views\ProductOnline\Index.cshtml" />
+    <None Include="Views\Shared\Components\Categories\Default.cshtml" />
+    <None Include="Views\Shared\Components\SmallCart\Default.cshtml" />
+    <None Include="wwwroot\DataTables\buttons.html5.min.js" />
+    <None Include="wwwroot\DataTables\buttons.print.min.js" />
+    <None Include="wwwroot\DataTables\dataTables.buttons.min.js" />
+    <None Include="wwwroot\DataTables\dataTables.fixedHeader.min.js" />
+    <None Include="wwwroot\DataTables\dataTables.responsive.min.js" />
+    <None Include="wwwroot\DataTables\dataTables.rowReorder.min.js" />
+    <None Include="wwwroot\DataTables\jquery-3.5.1.js" />
+    <None Include="wwwroot\DataTables\jquery.dataTables.min.js" />
+    <None Include="wwwroot\DataTables\jszip.min.js" />
+    <None Include="wwwroot\DataTables\pdfmake.min.js" />
+    <None Include="wwwroot\DataTables\vfs_fonts.js" />
+    <None Include="wwwroot\lib\axios\axios.js" />
+    <None Include="wwwroot\lib\axios\axios.js.map" />
+    <None Include="wwwroot\lib\axios\axios.min.js" />
+    <None Include="wwwroot\lib\axios\axios.min.js.map" />
+    <None Include="wwwroot\lib\axios\browser\axios.cjs.map" />
+    <None Include="wwwroot\lib\axios\esm\axios.js" />
+    <None Include="wwwroot\lib\axios\esm\axios.js.map" />
+    <None Include="wwwroot\lib\axios\esm\axios.min.js" />
+    <None Include="wwwroot\lib\axios\esm\axios.min.js.map" />
+    <None Include="wwwroot\lib\axios\node\axios.cjs.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\LICENSE" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.bootstrap.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.bootstrap.min.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.bootstrap4.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.bootstrap4.min.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.dataTables.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.dataTables.min.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.foundation.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.foundation.min.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.jqueryui.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.jqueryui.min.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.material.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.material.min.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.semanticui.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.semanticui.min.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.uikit.js" />
+    <None Include="wwwroot\lib\DataTables\js\dataTables.uikit.min.js" />
+    <None Include="wwwroot\lib\DataTables\js\jquery.dataTables.js" />
+    <None Include="wwwroot\lib\DataTables\js\jquery.dataTables.min.js" />
+    <None Include="wwwroot\plugins\jquery-ui-1.13.2\external\jquery\jquery.js" />
+    <None Include="wwwroot\plugins\jquery-ui-1.13.2\jquery-ui.js" />
+    <None Include="wwwroot\plugins\jquery-ui-1.13.2\jquery-ui.min.js" />
+  </ItemGroup>
+
+</Project>

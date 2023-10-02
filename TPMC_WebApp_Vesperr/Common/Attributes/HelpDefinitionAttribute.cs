@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace TPMC_WebApp_Vesperr.Common.Attributes
+namespace TIPMC_WebApp_Vesperr.Common.Attributes
 {
     [AttributeUsage(AttributeTargets.Method)]
     public class HelpDefinitionAttribute : ActionFilterAttribute, IActionFilter

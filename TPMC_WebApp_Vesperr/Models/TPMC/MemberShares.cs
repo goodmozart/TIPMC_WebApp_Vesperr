@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace TPMC_WebApp_Vesperr.Models.TPMC
+namespace TIPMC_WebApp_Vesperr.Models.TIPMC
 {
     public class MemberShares
     {

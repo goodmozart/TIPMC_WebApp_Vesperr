@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using TPMC_WebApp_Vesperr.Data;
+using TIPMC_WebApp_Vesperr.Data;
 
-namespace TPMC_WebApp_Vesperr.Data.Migrations
+namespace TIPMC_WebApp_Vesperr.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20160802083550_AddedAdditionalUserFields")]
@@ -17,7 +17,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.ApplicationUser", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id");
 
@@ -78,7 +78,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.UserAudit", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.UserAudit", b =>
                 {
                     b.Property<int>("UserAuditId")
                         .ValueGeneratedOnAdd();
@@ -214,7 +214,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.ApplicationUser")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.ApplicationUser")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -222,7 +222,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.ApplicationUser")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.ApplicationUser")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -235,7 +235,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.ApplicationUser")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.ApplicationUser")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

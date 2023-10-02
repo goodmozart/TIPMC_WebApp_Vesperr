@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace TPMC_WebApp_Vesperr.Models.ManageViewModels
+namespace TIPMC_WebApp_Vesperr.Models.ManageViewModels
 {
     public class ConfigureTwoFactorViewModel
     {

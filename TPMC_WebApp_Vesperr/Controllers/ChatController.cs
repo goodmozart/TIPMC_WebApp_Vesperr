@@ -3,18 +3,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
 using System;
-using TPMC_WebApp_Vesperr.Hubs;
-using TPMC_WebApp_Vesperr.Data;
-using TPMC_WebApp_Vesperr.Models.Chat;
+using TIPMC_WebApp_Vesperr.Hubs;
+using TIPMC_WebApp_Vesperr.Data;
+using TIPMC_WebApp_Vesperr.Models.Chat;
 using Microsoft.EntityFrameworkCore;
-using TPMC_WebApp_Vesperr.Models;
+using TIPMC_WebApp_Vesperr.Models;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using ErrorViewModel = TPMC_WebApp_Vesperr.Models.Chat.ErrorViewModel;
+using ErrorViewModel = TIPMC_WebApp_Vesperr.Models.Chat.ErrorViewModel;
 using System.Text;
 
-namespace TPMC_WebApp_Vesperr.Controllers
+namespace TIPMC_WebApp_Vesperr.Controllers
 {
     public class ChatController : Controller
     {

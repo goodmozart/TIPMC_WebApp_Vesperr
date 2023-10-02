@@ -1,4 +1,4 @@
-﻿namespace TPMC_WebApp_Vesperr.Common
+﻿namespace TIPMC_WebApp_Vesperr.Common
 {
     public static class CustomClaimTypes
     {

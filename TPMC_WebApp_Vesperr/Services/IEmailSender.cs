@@ -3,7 +3,7 @@ using System.Net.Mail;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace TPMC_WebApp_Vesperr.Services
+namespace TIPMC_WebApp_Vesperr.Services
 {
     public interface IEmailSender
     {
@@ -34,7 +34,7 @@ namespace TPMC_WebApp_Vesperr.Services
 
     //        var mailMessage = new MailMessage
     //        {
-    //            From = new MailAddress("TPMC@toshiba.co.jp"),
+    //            From = new MailAddress("TIPMC@toshiba.co.jp"),
     //            Subject = subject,
     //            Body = message,
     //            IsBodyHtml = true

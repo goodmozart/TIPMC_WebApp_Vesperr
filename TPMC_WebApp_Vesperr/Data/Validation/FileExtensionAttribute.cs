@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 
-namespace TPMC_WebApp_Vesperr.Data.Validation
+namespace TIPMC_WebApp_Vesperr.Data.Validation
 {
     public class FileExtensionAttribute : ValidationAttribute
     {

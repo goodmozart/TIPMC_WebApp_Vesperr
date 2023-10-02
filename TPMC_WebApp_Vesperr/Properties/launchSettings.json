@@ -7,7 +7,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "TPMC_WebApp_Vesperr": {
+    "TIPMC_WebApp_Vesperr": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "https://localhost:5001",

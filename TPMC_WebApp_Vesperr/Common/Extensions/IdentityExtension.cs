@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Security.Claims;
 
-namespace TPMC_WebApp_Vesperr.Common.Extensions
+namespace TIPMC_WebApp_Vesperr.Common.Extensions
 {
     public static class IdentityExtension
     {

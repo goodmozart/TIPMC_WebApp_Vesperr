@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <PreserveCompilationContext>true</PreserveCompilationContext>
-    <AssemblyName>TPMC_WebApp_Vesperr</AssemblyName>
+    <AssemblyName>TIPMC_WebApp_Vesperr</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>TPMC_WebApp_Vesperr</PackageId>
-    <UserSecretsId>aspnet-TPMC_WebApp_Vesperr-c9131f1e-93fb-4772-8c8b-1d4c77bf4354</UserSecretsId>
+    <PackageId>TIPMC_WebApp_Vesperr</PackageId>
+    <UserSecretsId>aspnet-TIPMC_WebApp_Vesperr-c9131f1e-93fb-4772-8c8b-1d4c77bf4354</UserSecretsId>
 	<EnvironmentName>Development</EnvironmentName>
   </PropertyGroup>
     <!--<PropertyGroup Condition=" '$(Configuration)' == '' Or '$(Configuration)' == 'Debug'">
@@ -16,7 +16,7 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20230813083402_memberidtoproduct.cs" />
     <Compile Remove="Data\Migrations\20230813083402_memberidtoproduct.Designer.cs" />
-    <Compile Remove="Models\TPMC\MemberShareModel.cs" />
+    <Compile Remove="Models\TIPMC\MemberShareModel.cs" />
   </ItemGroup>
 
   <ItemGroup>

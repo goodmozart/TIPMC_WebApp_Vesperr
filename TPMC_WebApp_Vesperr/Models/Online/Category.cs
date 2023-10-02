@@ -1,4 +1,4 @@
-﻿namespace TPMC_WebApp_Vesperr.Models.Online
+﻿namespace TIPMC_WebApp_Vesperr.Models.Online
 {
     public class Category
     {

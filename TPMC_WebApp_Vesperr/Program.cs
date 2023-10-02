@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace TPMC_WebApp_Vesperr
+namespace TIPMC_WebApp_Vesperr
 {
     public class Program
     {

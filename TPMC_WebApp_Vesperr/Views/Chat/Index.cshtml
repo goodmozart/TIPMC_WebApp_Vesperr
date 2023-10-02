@@ -1,4 +1,4 @@
-﻿@model List<TPMC_WebApp_Vesperr.Models.Chat.ChatViewModel>;
+﻿@model List<TIPMC_WebApp_Vesperr.Models.Chat.ChatViewModel>;
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutNew.cshtml";
@@ -48,7 +48,7 @@
 
                     <div class="chat">
                     @{
-                        List<TPMC_WebApp_Vesperr.Models.Chat.Message> messages = new();
+                        List<TIPMC_WebApp_Vesperr.Models.Chat.Message> messages = new();
                         //List<Message> messages = new();
                         messages.AddRange(c.MyMessages);
                         messages.AddRange(c.OtherMessages);

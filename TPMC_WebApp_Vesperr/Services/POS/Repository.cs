@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TPMC_WebApp_Vesperr.Services.POS
+namespace TIPMC_WebApp_Vesperr.Services.POS
 {
     public class Repository : IRepository
     {

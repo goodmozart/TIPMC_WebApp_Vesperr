@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace TPMC_WebApp_Vesperr.Data.Migrations
+namespace TIPMC_WebApp_Vesperr.Data.Migrations
 {
     public partial class sharemenber : Migration
     {

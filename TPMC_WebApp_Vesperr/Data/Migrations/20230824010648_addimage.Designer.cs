@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TPMC_WebApp_Vesperr.Data;
+using TIPMC_WebApp_Vesperr.Data;
 
 #nullable disable
 
-namespace TPMC_WebApp_Vesperr.Data.Migrations
+namespace TIPMC_WebApp_Vesperr.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20230824010648_addimage")]
@@ -157,7 +157,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.ApplicationUser", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -246,7 +246,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.Chat.Message", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.Chat.Message", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -278,7 +278,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("Messages");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.Online.CartItem", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.Online.CartItem", b =>
                 {
                     b.Property<long>("ProductId")
                         .ValueGeneratedOnAdd()
@@ -306,7 +306,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("Cart");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.Online.CartViewModel", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.Online.CartViewModel", b =>
                 {
                     b.Property<decimal>("GrandTotal")
                         .HasColumnType("decimal(18,4)");
@@ -314,7 +314,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("CartViewModel");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.Online.Category", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.Online.Category", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -333,7 +333,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.Online.ProductOnline", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.Online.ProductOnline", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -368,7 +368,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.GoodsReceive", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.GoodsReceive", b =>
                 {
                     b.Property<Guid>("GoodsReceiveId")
                         .ValueGeneratedOnAdd()
@@ -394,7 +394,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("GoodsReceive");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.GoodsReceiveLine", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.GoodsReceiveLine", b =>
                 {
                     b.Property<Guid>("GoodsReceiveLineId")
                         .ValueGeneratedOnAdd()
@@ -427,7 +427,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("GoodsReceiveLine");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.InvenTran", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.InvenTran", b =>
                 {
                     b.Property<Guid>("InvenTranId")
                         .ValueGeneratedOnAdd()
@@ -464,7 +464,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("InvenTran");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.Member", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.Member", b =>
                 {
                     b.Property<Guid>("MemberId")
                         .ValueGeneratedOnAdd()
@@ -522,7 +522,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("Member");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.Product", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.Product", b =>
                 {
                     b.Property<Guid>("ProductId")
                         .ValueGeneratedOnAdd()
@@ -546,7 +546,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.PurchaseOrder", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.PurchaseOrder", b =>
                 {
                     b.Property<Guid>("PurchaseOrderId")
                         .ValueGeneratedOnAdd()
@@ -572,7 +572,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("PurchaseOrder");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.PurchaseOrderLine", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.PurchaseOrderLine", b =>
                 {
                     b.Property<Guid>("PurchaseOrderLineId")
                         .ValueGeneratedOnAdd()
@@ -608,7 +608,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("PurchaseOrderLine");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.SalesOrder", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.SalesOrder", b =>
                 {
                     b.Property<Guid>("SalesOrderId")
                         .ValueGeneratedOnAdd()
@@ -634,7 +634,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("SalesOrder");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.SalesOrderLine", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.SalesOrderLine", b =>
                 {
                     b.Property<Guid>("SalesOrderLineId")
                         .ValueGeneratedOnAdd()
@@ -673,7 +673,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("SalesOrderLine");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.Vendor", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.Vendor", b =>
                 {
                     b.Property<Guid>("VendorId")
                         .ValueGeneratedOnAdd()
@@ -703,7 +703,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("Vendor");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.TPMC.MemberShareNew", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.TIPMC.MemberShareNew", b =>
                 {
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,4)");
@@ -750,7 +750,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("MemberShareNew");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.UserAudit", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.UserAudit", b =>
                 {
                     b.Property<int>("UserAuditId")
                         .ValueGeneratedOnAdd()
@@ -787,7 +787,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.ApplicationUser", null)
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -796,7 +796,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.ApplicationUser", null)
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -811,7 +811,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.ApplicationUser", null)
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -820,20 +820,20 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.ApplicationUser", null)
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.Chat.Message", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.Chat.Message", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.ApplicationUser", "FromUser")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.ApplicationUser", "FromUser")
                         .WithMany()
                         .HasForeignKey("FromUserId");
 
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.ApplicationUser", "ToUser")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.ApplicationUser", "ToUser")
                         .WithMany()
                         .HasForeignKey("ToUserId");
 
@@ -842,9 +842,9 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.Navigation("ToUser");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.Online.ProductOnline", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.Online.ProductOnline", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.Online.Category", "Category")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.Online.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -853,9 +853,9 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.GoodsReceive", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.GoodsReceive", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.POS.PurchaseOrder", "PurchaseOrder")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.POS.PurchaseOrder", "PurchaseOrder")
                         .WithMany()
                         .HasForeignKey("PurchaseOrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -864,15 +864,15 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.Navigation("PurchaseOrder");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.GoodsReceiveLine", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.GoodsReceiveLine", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.POS.GoodsReceive", "GoodsReceive")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.POS.GoodsReceive", "GoodsReceive")
                         .WithMany()
                         .HasForeignKey("GoodsReceiveId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.POS.Product", "Product")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.POS.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -883,9 +883,9 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.InvenTran", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.InvenTran", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.POS.Product", "Product")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.POS.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -894,9 +894,9 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.PurchaseOrder", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.PurchaseOrder", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.POS.Vendor", "Vendor")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.POS.Vendor", "Vendor")
                         .WithMany()
                         .HasForeignKey("VendorId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -905,15 +905,15 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.Navigation("Vendor");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.PurchaseOrderLine", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.PurchaseOrderLine", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.POS.Product", "Product")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.POS.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.POS.PurchaseOrder", "PurchaseOrder")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.POS.PurchaseOrder", "PurchaseOrder")
                         .WithMany("PurchaseOrderLine")
                         .HasForeignKey("PurchaseOrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -924,9 +924,9 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.Navigation("PurchaseOrder");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.SalesOrder", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.SalesOrder", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.POS.Member", "Member")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.POS.Member", "Member")
                         .WithMany()
                         .HasForeignKey("MemberId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -935,15 +935,15 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.Navigation("Member");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.SalesOrderLine", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.SalesOrderLine", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.POS.Product", "Product")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.POS.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.POS.SalesOrder", "SalesOrder")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.POS.SalesOrder", "SalesOrder")
                         .WithMany("SalesOrderLine")
                         .HasForeignKey("SalesOrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -954,12 +954,12 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.Navigation("SalesOrder");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.PurchaseOrder", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.PurchaseOrder", b =>
                 {
                     b.Navigation("PurchaseOrderLine");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.POS.SalesOrder", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.POS.SalesOrder", b =>
                 {
                     b.Navigation("SalesOrderLine");
                 });

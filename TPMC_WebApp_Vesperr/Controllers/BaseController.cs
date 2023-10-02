@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using TPMC_WebApp_Vesperr.Models;
+using TIPMC_WebApp_Vesperr.Models;
 using System.Runtime.CompilerServices;
 
-namespace TPMC_WebApp_Vesperr.Controllers
+namespace TIPMC_WebApp_Vesperr.Controllers
 {
     public class BaseController : Controller
     {

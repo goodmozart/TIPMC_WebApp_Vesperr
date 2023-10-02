@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TPMC_WebApp_Vesperr.Data;
+using TIPMC_WebApp_Vesperr.Data;
 
-namespace TPMC_WebApp_Vesperr.Hubs
+namespace TIPMC_WebApp_Vesperr.Hubs
 {
     public class ChatHub : Hub
     {

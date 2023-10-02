@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 
-namespace TPMC_WebApp_Vesperr.Models.ManageViewModels
+namespace TIPMC_WebApp_Vesperr.Models.ManageViewModels
 {
     public class IndexViewModel
     {

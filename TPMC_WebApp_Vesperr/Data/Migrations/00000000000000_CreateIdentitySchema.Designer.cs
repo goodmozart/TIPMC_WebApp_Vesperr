@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TPMC_WebApp_Vesperr.Data.Migrations
+namespace TIPMC_WebApp_Vesperr.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("00000000000000_CreateIdentitySchema")]
@@ -126,7 +126,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("TPMC_WebApp_Vesperr.Models.ApplicationUser", b =>
+            modelBuilder.Entity("TIPMC_WebApp_Vesperr.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id");
 
@@ -185,7 +185,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.ApplicationUser")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.ApplicationUser")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -193,7 +193,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.ApplicationUser")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.ApplicationUser")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -206,7 +206,7 @@ namespace TPMC_WebApp_Vesperr.Data.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("TPMC_WebApp_Vesperr.Models.ApplicationUser")
+                    b.HasOne("TIPMC_WebApp_Vesperr.Models.ApplicationUser")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

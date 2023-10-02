@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using TPMC_WebApp_Vesperr.Common;
-using TPMC_WebApp_Vesperr.Models;
+using TIPMC_WebApp_Vesperr.Common;
+using TIPMC_WebApp_Vesperr.Models;
 using System.Security.Claims;
-using TPMC_WebApp_Vesperr.Common.Extensions;
+using TIPMC_WebApp_Vesperr.Common.Extensions;
 using System;
 
-namespace TPMC_WebApp_Vesperr.ViewComponents
+namespace TIPMC_WebApp_Vesperr.ViewComponents
 {
     public class SidebarViewComponent : ViewComponent
     {

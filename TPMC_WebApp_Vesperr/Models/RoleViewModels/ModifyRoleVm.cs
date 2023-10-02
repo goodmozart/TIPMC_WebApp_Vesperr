@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TPMC_WebApp_Vesperr.Models.RoleViewModels
+namespace TIPMC_WebApp_Vesperr.Models.RoleViewModels
 {
     public class ModifyRoleVm
     {

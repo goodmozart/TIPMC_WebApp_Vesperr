@@ -13,11 +13,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using TPMC_WebApp_Vesperr.Models;
-using TPMC_WebApp_Vesperr.Common;
-using TPMC_WebApp_Vesperr.Models.Online;
+using TIPMC_WebApp_Vesperr.Models;
+using TIPMC_WebApp_Vesperr.Common;
+using TIPMC_WebApp_Vesperr.Models.Online;
 
-namespace TPMC_WebApp_Vesperr.Data
+namespace TIPMC_WebApp_Vesperr.Data
 {
     public static class DataSeed
     {

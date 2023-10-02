@@ -2,7 +2,7 @@
 using System.Xml.Linq;
 using System;
 
-namespace TPMC_WebApp_Vesperr.Models.TPMC
+namespace TIPMC_WebApp_Vesperr.Models.TIPMC
 {
     public class MemberPayment
     {

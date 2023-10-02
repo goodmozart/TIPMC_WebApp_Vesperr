@@ -1,10 +1,10 @@
-﻿using TPMC_WebApp_Vesperr.Models;
+﻿using TIPMC_WebApp_Vesperr.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Security.Claims;
-using TPMC_WebApp_Vesperr.Common.Extensions;
-using TPMC_WebApp_Vesperr.Common;
-namespace TPMC_WebApp_Vesperr.ViewComponents
+using TIPMC_WebApp_Vesperr.Common.Extensions;
+using TIPMC_WebApp_Vesperr.Common;
+namespace TIPMC_WebApp_Vesperr.ViewComponents
 {
     public class MenuMessageViewComponent : ViewComponent
     {

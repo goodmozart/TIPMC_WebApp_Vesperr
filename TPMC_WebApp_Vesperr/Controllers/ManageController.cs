@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using TPMC_WebApp_Vesperr.Models;
-using TPMC_WebApp_Vesperr.Models.ManageViewModels;
-using TPMC_WebApp_Vesperr.Services;
+using TIPMC_WebApp_Vesperr.Models;
+using TIPMC_WebApp_Vesperr.Models.ManageViewModels;
+using TIPMC_WebApp_Vesperr.Services;
 
-namespace TPMC_WebApp_Vesperr.Controllers
+namespace TIPMC_WebApp_Vesperr.Controllers
 {
     [Authorize]
     public class ManageController : Controller

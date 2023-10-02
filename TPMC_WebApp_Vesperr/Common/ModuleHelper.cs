@@ -1,8 +1,8 @@
-﻿using TPMC_WebApp_Vesperr.Models;
+﻿using TIPMC_WebApp_Vesperr.Models;
 using System;
 using System.Collections.Generic;
 
-namespace TPMC_WebApp_Vesperr.Common
+namespace TIPMC_WebApp_Vesperr.Common
 {
     /// <summary>
     /// This is where you customize the navigation sidebar

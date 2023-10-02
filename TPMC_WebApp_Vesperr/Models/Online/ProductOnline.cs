@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using TPMC_WebApp_Vesperr.Data.Validation;
+using TIPMC_WebApp_Vesperr.Data.Validation;
 
-namespace TPMC_WebApp_Vesperr.Models.Online
+namespace TIPMC_WebApp_Vesperr.Models.Online
 {
     public class ProductOnline
     {

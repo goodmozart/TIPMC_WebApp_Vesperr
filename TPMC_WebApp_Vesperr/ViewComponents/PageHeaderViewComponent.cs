@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace TPMC_WebApp_Vesperr.ViewComponents
+namespace TIPMC_WebApp_Vesperr.ViewComponents
 {
     public class PageHeaderViewComponent : ViewComponent
     {

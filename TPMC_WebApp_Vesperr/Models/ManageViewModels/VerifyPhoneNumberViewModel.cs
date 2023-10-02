@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TPMC_WebApp_Vesperr.Models.ManageViewModels
+namespace TIPMC_WebApp_Vesperr.Models.ManageViewModels
 {
     public class VerifyPhoneNumberViewModel
     {

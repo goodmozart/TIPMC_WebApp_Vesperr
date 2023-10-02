@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using TPMC_WebApp_Vesperr.Common;
-using TPMC_WebApp_Vesperr.Models;
+using TIPMC_WebApp_Vesperr.Common;
+using TIPMC_WebApp_Vesperr.Models;
 
-namespace TPMC_WebApp_Vesperr.Data
+namespace TIPMC_WebApp_Vesperr.Data
 {
     public class AppClaimsPrincipalFactory : UserClaimsPrincipalFactory<ApplicationUser, IdentityRole>
     {

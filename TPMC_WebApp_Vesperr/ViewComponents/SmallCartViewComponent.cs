@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TPMC_WebApp_Vesperr.Data;
-using TPMC_WebApp_Vesperr.Models.Online;
+using TIPMC_WebApp_Vesperr.Data;
+using TIPMC_WebApp_Vesperr.Models.Online;
 
-namespace TPMC_WebApp_Vesperr.ViewComponents
+namespace TIPMC_WebApp_Vesperr.ViewComponents
 {
     public class SmallCartViewComponent : ViewComponent
     {

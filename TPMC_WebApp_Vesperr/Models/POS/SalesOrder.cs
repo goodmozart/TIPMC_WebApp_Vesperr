@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TPMC_WebApp_Vesperr.Models.POS
+namespace TIPMC_WebApp_Vesperr.Models.POS
 {
     public class SalesOrder
     {

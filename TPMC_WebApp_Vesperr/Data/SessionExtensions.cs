@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace TPMC_WebApp_Vesperr.Data
+namespace TIPMC_WebApp_Vesperr.Data
 {
     public static class SessionExtensions
     {

@@ -1,4 +1,4 @@
-﻿using TPMC_WebApp_Vesperr.Models;
+﻿using TIPMC_WebApp_Vesperr.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -7,10 +7,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks;
-using TPMC_WebApp_Vesperr.Common;
-using TPMC_WebApp_Vesperr.Common.Extensions;
+using TIPMC_WebApp_Vesperr.Common;
+using TIPMC_WebApp_Vesperr.Common.Extensions;
 
-namespace TPMC_WebApp_Vesperr.Data
+namespace TIPMC_WebApp_Vesperr.Data
 {
     public class AuditableSignInManager<TUser> : SignInManager<TUser> where TUser : class
     {

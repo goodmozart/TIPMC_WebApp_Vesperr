@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace TPMC_WebApp_Vesperr.Models.AccountViewModels
+namespace TIPMC_WebApp_Vesperr.Models.AccountViewModels
 {
     public class SendCodeViewModel
     {

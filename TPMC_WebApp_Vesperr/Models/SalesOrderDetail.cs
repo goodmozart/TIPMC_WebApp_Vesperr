@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TPMC_WebApp_Vesperr.Models
+namespace TIPMC_WebApp_Vesperr.Models
 {
     public class SalesOrderDetail
     {

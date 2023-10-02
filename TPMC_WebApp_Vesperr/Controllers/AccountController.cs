@@ -6,17 +6,17 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
-using TPMC_WebApp_Vesperr.Models;
-using TPMC_WebApp_Vesperr.Models.AccountViewModels;
-using TPMC_WebApp_Vesperr.Services;
-using TPMC_WebApp_Vesperr.Common;
+using TIPMC_WebApp_Vesperr.Models;
+using TIPMC_WebApp_Vesperr.Models.AccountViewModels;
+using TIPMC_WebApp_Vesperr.Services;
+using TIPMC_WebApp_Vesperr.Common;
 using System;
-using TPMC_WebApp_Vesperr.Models.POS;
+using TIPMC_WebApp_Vesperr.Models.POS;
 using Microsoft.EntityFrameworkCore;
-using TPMC_WebApp_Vesperr.Data;
+using TIPMC_WebApp_Vesperr.Data;
 using System.Diagnostics.Metrics;
 
-namespace TPMC_WebApp_Vesperr.Controllers
+namespace TIPMC_WebApp_Vesperr.Controllers
 {
     [Authorize]
     public class AccountController : Controller

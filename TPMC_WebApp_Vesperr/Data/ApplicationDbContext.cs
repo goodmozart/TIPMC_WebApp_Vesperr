@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Reflection.Emit;
-using TPMC_WebApp_Vesperr.Models;
-using TPMC_WebApp_Vesperr.Models.Online;
-using TPMC_WebApp_Vesperr.Models.POS;
-using TPMC_WebApp_Vesperr.Models.TPMC;
+using TIPMC_WebApp_Vesperr.Models;
+using TIPMC_WebApp_Vesperr.Models.Online;
+using TIPMC_WebApp_Vesperr.Models.POS;
+using TIPMC_WebApp_Vesperr.Models.TIPMC;
 
-namespace TPMC_WebApp_Vesperr.Data
+namespace TIPMC_WebApp_Vesperr.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -95,23 +95,23 @@ namespace TPMC_WebApp_Vesperr.Data
        .Property(p => p.Interest)
        .HasColumnType("decimal(18,4)");
         }
-        public DbSet<TPMC_WebApp_Vesperr.Models.POS.Member> Member { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.POS.Vendor> Vendor { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.POS.Product> Product { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.POS.PurchaseOrder> PurchaseOrder { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.POS.SalesOrder> SalesOrder { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.POS.GoodsReceive> GoodsReceive { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.POS.InvenTran> InvenTran { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.POS.PurchaseOrderLine> PurchaseOrderLine { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.POS.SalesOrderLine> SalesOrderLine { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.POS.GoodsReceiveLine> GoodsReceiveLine { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.Online.ProductOnline> Products { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.Online.Category> Categories { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.Online.CartItem> Cart { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.Online.Order> Orders { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.Chat.Message> Messages { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.TPMC.MemberShares> MemberShares { get; set; }
-        public DbSet<TPMC_WebApp_Vesperr.Models.TPMC.MemberPayment> MemberPayment { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.POS.Member> Member { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.POS.Vendor> Vendor { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.POS.Product> Product { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.POS.PurchaseOrder> PurchaseOrder { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.POS.SalesOrder> SalesOrder { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.POS.GoodsReceive> GoodsReceive { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.POS.InvenTran> InvenTran { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.POS.PurchaseOrderLine> PurchaseOrderLine { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.POS.SalesOrderLine> SalesOrderLine { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.POS.GoodsReceiveLine> GoodsReceiveLine { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.Online.ProductOnline> Products { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.Online.Category> Categories { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.Online.CartItem> Cart { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.Online.Order> Orders { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.Chat.Message> Messages { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.TIPMC.MemberShares> MemberShares { get; set; }
+        public DbSet<TIPMC_WebApp_Vesperr.Models.TIPMC.MemberPayment> MemberPayment { get; set; }
 
     }
 }

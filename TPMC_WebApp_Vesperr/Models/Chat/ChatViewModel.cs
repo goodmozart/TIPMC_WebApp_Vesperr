@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TPMC_WebApp_Vesperr.Models.Chat
+namespace TIPMC_WebApp_Vesperr.Models.Chat
 {
     public class ChatViewModel
     {

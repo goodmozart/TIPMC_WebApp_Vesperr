@@ -1,6 +1,6 @@
-﻿using TPMC_WebApp_Vesperr.Data;
-using TPMC_WebApp_Vesperr.Models;
-using TPMC_WebApp_Vesperr.Services;
+﻿using TIPMC_WebApp_Vesperr.Data;
+using TIPMC_WebApp_Vesperr.Models;
+using TIPMC_WebApp_Vesperr.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -14,11 +14,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using TPMC_WebApp_Vesperr.Services.POS;
-using TPMC_WebApp_Vesperr.Hubs;
+using TIPMC_WebApp_Vesperr.Services.POS;
+using TIPMC_WebApp_Vesperr.Hubs;
 using System.Globalization;
 
-namespace TPMC_WebApp_Vesperr
+namespace TIPMC_WebApp_Vesperr
 {
     public class Startup
     {

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace TPMC_WebApp_Vesperr.Services
+namespace TIPMC_WebApp_Vesperr.Services
 {
     public interface ISmsSender
     {

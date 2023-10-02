@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using TPMC_WebApp_Vesperr.Models;
-using TPMC_WebApp_Vesperr.Models.SuperAdminViewModels;
+using TIPMC_WebApp_Vesperr.Models;
+using TIPMC_WebApp_Vesperr.Models.SuperAdminViewModels;
 
-namespace TPMC_WebApp_Vesperr.Controllers
+namespace TIPMC_WebApp_Vesperr.Controllers
 {
     [Authorize(Roles = "SuperAdmins")]
     public class SuperAdminController : Controller

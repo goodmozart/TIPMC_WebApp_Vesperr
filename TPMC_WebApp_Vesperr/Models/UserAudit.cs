@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace TPMC_WebApp_Vesperr.Models
+namespace TIPMC_WebApp_Vesperr.Models
 {
     public class UserAudit
     {

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TPMC_WebApp_Vesperr.Common
+namespace TIPMC_WebApp_Vesperr.Common
 {
     public static class GlobalHelper
     {
